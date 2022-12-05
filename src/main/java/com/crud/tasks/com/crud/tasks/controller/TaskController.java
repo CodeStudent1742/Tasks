@@ -4,9 +4,7 @@ import com.crud.tasks.com.crud.tasks.domain.Task;
 import com.crud.tasks.com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.com.crud.tasks.service.DbService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/tasks")
 public class TaskController {
@@ -40,7 +39,7 @@ public class TaskController {
 
     @GetMapping(value = "{taskId}")
     public ResponseEntity<TaskDto> getTask(@PathVariable Long taskId) throws TaskNotFoundException {
-            return  ResponseEntity.ok(taskMapper.mapToTaskDto(service.getTask(taskId)));
+        return ResponseEntity.ok(taskMapper.mapToTaskDto(service.getTask(taskId)));
 
     }
 
@@ -49,6 +48,11 @@ public class TaskController {
         service.deleteTask(taskId);
         return ResponseEntity.ok().build();
     }
+
+//    @DeleteMapping(value = "{taskId}")
+//    public void deleteTask(@PathVariable Long taskId){
+//       service.deleteTask(taskId);
+//    }
 
     @PutMapping
     public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto) {
@@ -64,3 +68,5 @@ public class TaskController {
         return ResponseEntity.ok().build();
     }
 }
+
+
