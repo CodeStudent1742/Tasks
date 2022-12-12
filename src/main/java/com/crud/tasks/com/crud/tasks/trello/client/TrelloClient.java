@@ -4,6 +4,7 @@ import com.crud.tasks.com.crud.tasks.config.TrelloConfig;
 import com.crud.tasks.com.crud.tasks.domain.CreatedTrelloCard;
 import com.crud.tasks.com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.com.crud.tasks.domain.TrelloCardDto;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;

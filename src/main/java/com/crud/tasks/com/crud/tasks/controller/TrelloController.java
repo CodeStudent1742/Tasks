@@ -4,6 +4,7 @@ import com.crud.tasks.com.crud.tasks.domain.CreatedTrelloCard;
 import com.crud.tasks.com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.com.crud.tasks.trello.client.TrelloClient;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/trello")
+@RequestMapping("/v1/trello")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class TrelloController {
