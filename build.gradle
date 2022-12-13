@@ -36,5 +36,10 @@ dependencies {
 }
 
 tasks.named('test') {
+    onlyIf {
+        project.hasProperty("runtests")
+    }
+    doLast {
         useJUnitPlatform()
+    }
 }
