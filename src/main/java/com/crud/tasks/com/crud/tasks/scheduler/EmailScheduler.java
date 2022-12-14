@@ -18,26 +18,17 @@ public class EmailScheduler {
     private final AdminConfig adminConfig;
 
     @Scheduled(cron = "0 0 10 * * *")
+//   @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
-        if (size==1) {
             simpleEmailService.send(
                     new Mail(
                             adminConfig.getAdminMail(),
                             SUBJECT,
-                            "Currently in database you got 1 task",
+                            "Currently in database you got: " + size + (size==1 ? " task":" tasks"),
                             null
                     )
             );
-        } else{
-            simpleEmailService.send(
-                    new Mail(
-                            adminConfig.getAdminMail(),
-                            SUBJECT,
-                            "Currently in database you got: " + size + " tasks",
-                            null
-                    )
-            );
-        }
+
     }
 }
