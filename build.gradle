@@ -27,6 +27,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('com.google.code.gson:gson')
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vitage', module: 'junit-vintage-engine'
     }
