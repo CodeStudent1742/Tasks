@@ -43,7 +43,23 @@ public String buildTrelloCardEmail(String message) {
     context.setVariable("company_email", companyConfig.getCompanyMail());
     context.setVariable("show_button", false);
     context.setVariable("is_friend", false);
+    context.setVariable("application_functionality", functionality);
     return templateEngine.process("mail/created-trello-card-mail", context);
 }
 
+public String countTasksEmail(String message){
+    Context context = new Context();
+    context.setVariable("message", message);
+    context.setVariable("welcome", "Nice to see you!");
+    context.setVariable("tasks_url", "https://codestudent1742.github.io");
+    context.setVariable("button", "Visit website");
+    context.setVariable("admin_name", adminConfig);
+    context.setVariable("goodbye", "Have a nice day!");
+    context.setVariable("company_name", companyConfig.getCompanyName());
+    context.setVariable("company_email", companyConfig.getCompanyMail());
+    context.setVariable("show_button", false);
+    context.setVariable("is_friend", false);
+
+    return templateEngine.process("mail/created-trello-card-mail", context);
+}
 }

@@ -17,18 +17,31 @@ public class EmailScheduler {
     private final TaskRepository taskRepository;
     private final AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
+//    @Scheduled(cron = "0 0 10 * * *")
 //   @Scheduled(fixedDelay = 10000)
+//    public void sendInformationEmail() {
+//        long size = taskRepository.count();
+//            simpleEmailService.send(
+//                    new Mail(
+//                            adminConfig.getAdminMail(),
+//                            SUBJECT,
+//                            "Currently in database you got: " + size + (size==1 ? " task":" tasks"),
+//                            null
+//                    )
+//            );
+//    }
+//    @Scheduled(cron = "0 0 10 * * *")
+   @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
-            simpleEmailService.send(
-                    new Mail(
-                            adminConfig.getAdminMail(),
-                            SUBJECT,
-                            "Currently in database you got: " + size + (size==1 ? " task":" tasks"),
-                            null
-                    )
-            );
+        simpleEmailService.send2(
+                new Mail(
+                        adminConfig.getAdminMail(),
+                        SUBJECT,
+                        "Currently in database you got: " + size + (size==1 ? " task":" tasks"),
+                        null
+                )
+        );
 
     }
 }
