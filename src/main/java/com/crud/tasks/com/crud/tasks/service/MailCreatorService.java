@@ -32,6 +32,7 @@ public String buildTrelloCardEmail(String message) {
     context.setVariable("company_name", companyConfig.getCompanyName());
     context.setVariable("company_email", companyConfig.getCompanyMail());
     context.setVariable("show_button", false);
+    context.setVariable("is_friend", true);
     return templateEngine.process("mail/created-trello-card-mail", context);
 }
 
