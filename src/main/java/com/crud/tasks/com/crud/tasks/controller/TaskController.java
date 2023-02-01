@@ -9,8 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -32,10 +30,6 @@ public class TaskController {
         List<Task> tasks = service.getAllTasks();
         return ResponseEntity.ok(taskMapper.mapToTaskDtoList(tasks));
     }
-//    @GetMapping
-//    public List<TaskDto> getTasks() {
-//        return new ArrayList<>();
-//    }
 
     @GetMapping(value = "{taskId}")
     public ResponseEntity<TaskDto> getTask(@PathVariable Long taskId) throws TaskNotFoundException {
@@ -48,11 +42,6 @@ public class TaskController {
         service.deleteTask(taskId);
         return ResponseEntity.ok().build();
     }
-
-//    @DeleteMapping(value = "{taskId}")
-//    public void deleteTask(@PathVariable Long taskId){
-//       service.deleteTask(taskId);
-//    }
 
     @PutMapping
     public ResponseEntity<TaskDto> updateTask(@RequestBody TaskDto taskDto) {

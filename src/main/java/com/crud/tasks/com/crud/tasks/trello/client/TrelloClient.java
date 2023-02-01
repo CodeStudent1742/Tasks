@@ -43,12 +43,6 @@ public class TrelloClient {
 
     }
 
-//    TrelloBoardDto[] boardsResponse = restTemplate.getForObject(url, TrelloBoardDto[].class);
-//
-//        return Optional.ofNullable(boardsResponse)
-//                .map(Arrays::asList)
-//                .orElse(Collections.emptyList());
-//    }
     public CreatedTrelloCardDto createNewCard(TrelloCardDto trelloCardDto) {
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/cards")
                 .queryParam("key", trelloConfig.getTrelloAppKey())

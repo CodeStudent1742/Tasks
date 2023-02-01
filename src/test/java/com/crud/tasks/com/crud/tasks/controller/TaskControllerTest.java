@@ -3,7 +3,6 @@ package com.crud.tasks.com.crud.tasks.controller;
 import com.crud.tasks.com.crud.tasks.domain.Task;
 import com.crud.tasks.com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.com.crud.tasks.mapper.TaskMapper;
-import com.crud.tasks.com.crud.tasks.repository.TaskRepository;
 import com.crud.tasks.com.crud.tasks.service.DbService;
 import com.google.gson.Gson;
 import org.hamcrest.Matchers;

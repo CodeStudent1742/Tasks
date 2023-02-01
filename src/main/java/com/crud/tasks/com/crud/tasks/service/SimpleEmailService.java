@@ -3,15 +3,11 @@ package com.crud.tasks.com.crud.tasks.service;
 import com.crud.tasks.com.crud.tasks.domain.Mail;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -25,8 +21,6 @@ public class SimpleEmailService {
     public void send(final Mail mail) {
         log.info("Starting email preparation...");
         try {
-//            SimpleMailMessage mailMessage = createMailMessage(mail);
-//            javaMailSender.send(mailMessage);
             javaMailSender.send(createMimeMessage(mail));
             log.info("Email has been sent.");
         } catch (MailException e) {
@@ -52,13 +46,6 @@ public class SimpleEmailService {
         };
     }
 
-    //    private SimpleMailMessage createMailMessage(final Mail mail) {
-//        SimpleMailMessage mailMessage = new SimpleMailMessage();
-//        mailMessage.setTo(mail.getMailTo());
-//        mailMessage.setSubject(mail.getSubject());
-//        mailMessage.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()));
-//        return mailMessage;
-//    }
     public void send2(final Mail mail) {
         log.info("Starting email preparation...");
         try {
